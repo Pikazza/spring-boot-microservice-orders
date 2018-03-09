@@ -8,4 +8,10 @@ public interface OrdersService {
 
 	Orders getOrder(String id);
 
+	Orders postOrder(Orders orders);
+
+	Orders putOrder(Orders orders);
+
+	List<Orders> byCustomerId(String id);
+
 }

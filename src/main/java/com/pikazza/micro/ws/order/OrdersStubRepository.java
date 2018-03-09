@@ -19,14 +19,14 @@ public class OrdersStubRepository{
 	
 	public OrdersStubRepository() {
 		
-		Orders user = new Orders(1l, 111l, "item1" , "image1", "2","40");
+		Orders user = new Orders("1", "111", "item1" , "image1", "2","40");
 		ordersByNumber.put("1", user);
-		user = new Orders(2l, 112l, "item2" , "image2", "2","40");
+		user = new Orders("2", "112", "item2" , "image2", "2","40");
 		ordersByNumber.put("2", user);
 		
-		user = new Orders(3l, 113l, "item3" , "image3", "2","40");
+		user = new Orders("3", "113", "item3" , "image3", "2","40");
 		ordersByNumber.put("3", user);
-		user = new Orders(4l, 114l, "item4" , "image4", "2","40");
+		user = new Orders("4", "114", "item4" , "image4", "2","40");
 		ordersByNumber.put("4", user);
 		Logger.getLogger(OrdersStubRepository.class).info("Created StubAccountRepository");
 	}

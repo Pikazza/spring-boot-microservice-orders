@@ -11,15 +11,40 @@ public class OrdersServiceImpl implements OrdersService{
 	@Autowired
 	OrdersStubRepository usersStubRepository;
 
+	@Autowired
+	OrdersRepository ordersRepository;
+	
 	public List<Orders> getAllOrders() {
-		 List<Orders> users = usersStubRepository.getAllOrders();
+		 List<Orders> users = ordersRepository.findAll();
 		return users;
 	}
 
 	public Orders getOrder(String id) {
-		Orders user = usersStubRepository.getOrder(id);
-		// TODO Auto-generated method stub
+		Orders user = ordersRepository.findOne(id);
 		return user;
+	}
+
+	@Override
+	public Orders postOrder(Orders orders) {
+		Orders ors = ordersRepository.save(orders);
+		return ors;
+	}
+
+	@Override
+	public Orders putOrder(Orders orders) {
+		Orders oo = ordersRepository.findOne(orders.getOrderId());
+		oo.setItemName(orders.getItemName());
+		oo.setItemImage(orders.getItemImage());
+		oo.setItemPrice(orders.getItemPrice());
+		oo.setItemQty(orders.getItemQty());
+		Orders ors = ordersRepository.save(orders);
+		return ors;
+	}
+
+	@Override
+	public List<Orders> byCustomerId(String id) {
+		List<Orders> oo = ordersRepository.findByUserId(id);
+		return oo;
 	}
 
 	
